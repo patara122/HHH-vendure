@@ -58,7 +58,16 @@ export const config: VendureConfig = {
     },
     // When adding or altering custom field definitions, the database will
     // need to be updated. See the "Migrations" section in README.md.
-    customFields: {},
+    customFields: {
+        ProductVariant : [
+            {
+                name: 'barcode',
+                type: 'string',
+                pattern: '^[0-9]{12,13}$'
+            }
+        ]
+
+    },
     plugins: [
         GraphiqlPlugin.init(),
         AssetServerPlugin.init({
