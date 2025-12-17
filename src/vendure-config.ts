@@ -88,6 +88,10 @@ export const config: VendureConfig = {
                         name: 'Brand',
                         type: 'string',
                     },
+                    {
+                        name: 'PackingUnit',
+                        type: 'string',
+                    },
                     {       
                         name: 'Width',
                         type: 'int',
