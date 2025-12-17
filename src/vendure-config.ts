@@ -60,10 +60,51 @@ export const config: VendureConfig = {
     // need to be updated. See the "Migrations" section in README.md.
     customFields: {
         ProductVariant : [
+            
             {
-                name: 'barcode',
+                name: 'SupplierSKU',
                 type: 'string',
-                pattern: '^[0-9]{12,13}$'
+                nullable: true,
+            },
+
+            {
+                name: 'NewSKU',
+                type: 'string',
+                nullable: true,
+            },
+            
+            {
+                name: 'Barcode',
+                type: 'string',
+                pattern: '^[0-9]{12,13}$',
+                nullable: true,
+            },
+
+            {   
+                name: 'Additionalinfo',
+                type: 'struct',
+                fields: [
+                    {
+                        name: 'Brand',
+                        type: 'string',
+                    },
+                    {       
+                        name: 'Width',
+                        type: 'int',
+                    },
+                    {
+                        name: 'Depth',
+                        type: 'int',
+                    },
+                    {
+                        name: 'Height',
+                        type: 'int',
+                    },
+                    {
+                        name: 'Weight',
+                        type: 'int',
+                    }
+                ]
             }
         ]
 
