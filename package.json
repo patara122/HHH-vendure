@@ -21,8 +21,10 @@
     "@vendure/elasticsearch-plugin": "^3.5.2",
     "@vendure/email-plugin": "3.5.2",
     "@vendure/graphiql-plugin": "3.5.2",
+    "@vendure/payments-plugin": "^3.5.2",
     "dotenv": "17.2.3",
-    "pg": "8.16.3"
+    "pg": "8.16.3",
+    "stripe": "^13.11.0"
   },
   "devDependencies": {
     "@vendure/cli": "3.5.2",
