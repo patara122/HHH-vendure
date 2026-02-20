@@ -60,6 +60,16 @@ export const config: VendureConfig = {
     // When adding or altering custom field definitions, the database will
     // need to be updated. See the "Migrations" section in README.md.
     customFields: {
+
+        Product : [
+            {
+                name: 'infoUrls',
+                type: 'string',
+                nullable: true,
+                list: true,
+            }
+        ],
+
         ProductVariant : [
             
             {
@@ -95,19 +105,19 @@ export const config: VendureConfig = {
                     },
                     {       
                         name: 'Width',
-                        type: 'int',
+                        type: 'string',
                     },
                     {
                         name: 'Depth',
-                        type: 'int',
+                        type: 'string',
                     },
                     {
                         name: 'Height',
-                        type: 'int',
+                        type: 'string',
                     },
                     {
                         name: 'Weight',
-                        type: 'int',
+                        type: 'string',
                     }
                 ]
             }
