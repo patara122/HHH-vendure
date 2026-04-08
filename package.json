@@ -9,12 +9,14 @@
     "build": "tsc",
     "start:server": "node ./dist/index.js",
     "start:worker": "node ./dist/index-worker.js",
-    "start": "concurrently npm:start:*"
+    "start": "concurrently npm:start:*",
+    "meilisearch:settings": "sh ./apply-meilisearch-settings.sh"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.958.0",
     "@aws-sdk/lib-storage": "^3.958.0",
     "@elastic/elasticsearch": "^9.2.0",
+    "@rahul_vendure/vendure-meilli-search": "^1.0.1",
     "@vendure/asset-server-plugin": "^3.5.5",
     "@vendure/core": "3.5.5",
     "@vendure/dashboard": "3.5.5",

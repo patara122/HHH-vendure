@@ -2,7 +2,7 @@ import {
     dummyPaymentHandler,
     DefaultJobQueuePlugin,
     DefaultSchedulerPlugin,
-    DefaultSearchPlugin,
+ //   DefaultSearchPlugin,
     VendureConfig,
 } from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin, FileBasedTemplateLoader } from '@vendure/email-plugin';
@@ -12,6 +12,15 @@ import { GraphiqlPlugin } from '@vendure/graphiql-plugin';
 import 'dotenv/config';
 import path from 'path';
 import { CmsPlugin } from './plugins/cms/cms.plugin';
+import {
+  MeilisearchPlugin,
+  MeilisearchOptions,
+  SearchConfig,
+  MatchingStrategy,
+  EmbedderConfig,
+  AiSearchConfig,
+  TypoToleranceConfig,
+} from '@rahul_vendure/vendure-meilli-search';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
 const serverPort = +process.env.PORT || 3000;
@@ -125,12 +134,41 @@ export const config: VendureConfig = {
 
     },
     plugins: [
+
+        MeilisearchPlugin.init({
+            host: 'http://localhost:7700',
+            apiKey: 'XPEjd5jifeINvSuJ7jSyZt22o6Goqzj29nAWX7lnfn0',
+            customProductVariantMappings: {
+                NewSKU: {
+                    graphQlType: 'String',
+                    valueFn: (variant, languageCode, injector, ctx) => {
+                        return (variant.customFields as any)?.NewSKU ?? '';
+                    },
+                },
+                SupplierSKU: {
+                    graphQlType: 'String',
+                    valueFn: (variant, languageCode, injector, ctx) => {
+                        return (variant.customFields as any)?.SupplierSKU ?? '';
+                    },
+                },
+                Barcode: {
+                    graphQlType: 'String',
+                    valueFn: (variant, languageCode, injector, ctx) => {
+                        return (variant.customFields as any)?.Barcode ?? '';
+                    },
+                },
+            },
+            searchConfig: {
+                attributesToSearchOn: ['productName', 'productVariantName','sku','description','slug','variant-NewSKU','variant-SupplierSKU','variant-Barcode'],
+            },
+        }),
     
         GraphiqlPlugin.init(),
         AssetServerPlugin.init({
             route: 'assets',
             assetUploadDir: path.join(__dirname, '../static/assets'),
-            // For local dev, the correct value for assetUrlPrefix should
+            // For local dev, the correct value for assetUrlPre
+            // fix should
             // be guessed correctly, but for production it will usually need
             // to be set manually to match your production url.
             assetUrlPrefix: IS_DEV ? undefined : 'https://www.my-shop.com/assets/',
@@ -153,7 +191,7 @@ export const config: VendureConfig = {
         }),
         DefaultSchedulerPlugin.init(),
         DefaultJobQueuePlugin.init({ useDatabaseForBuffer: true }),
-        DefaultSearchPlugin.init({ bufferUpdates: false, indexStockStatus: true }),
+       // DefaultSearchPlugin.init({ bufferUpdates: false, indexStockStatus: true }),
         EmailPlugin.init({
             devMode: true,
             outputPath: path.join(__dirname, '../static/email/test-emails'),
