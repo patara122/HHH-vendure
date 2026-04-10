@@ -1582,10 +1582,10 @@
   resolved "https://registry.npmjs.org/@hono/node-server/-/node-server-1.19.13.tgz"
   integrity sha512-TsQLe4i2gvoTtrHje625ngThGBySOgSK3Xo2XRYOdqGN1teR8+I7vchQC46uLJi8OF62YTYA3AhSpumtkhsaKQ==
 
-"@hookform/resolvers@^4.1.3":
-  version "4.1.3"
-  resolved "https://registry.npmjs.org/@hookform/resolvers/-/resolvers-4.1.3.tgz"
-  integrity sha512-Jsv6UOWYTrEFJ/01ZrnwVXs7KDvP8XIo115i++5PWvNkNvkrsTfGiLS6w+eJ57CYtUtDQalUWovCZDHFJ8u1VQ==
+"@hookform/resolvers@^5.0.0":
+  version "5.2.2"
+  resolved "https://registry.npmjs.org/@hookform/resolvers/-/resolvers-5.2.2.tgz"
+  integrity sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==
   dependencies:
     "@standard-schema/utils" "^0.3.0"
 
@@ -3737,22 +3737,22 @@
     tailwind-merge "^3.5.0"
     vaul "^1.1.2"
 
-"@vendure/asset-server-plugin@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/asset-server-plugin/-/asset-server-plugin-3.6.0.tgz"
-  integrity sha512-+pOukNwzfp2JSt7kkpHy7ZndJQ0SRja9JfoteKbj7PhPYcvZvZ4RuSQy0rPcss8qnlIhT/nXBQ4+tuWCDXWl7g==
+"@vendure/asset-server-plugin@^3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/asset-server-plugin/-/asset-server-plugin-3.6.1.tgz"
+  integrity sha512-DB2LcGQdS1gDFx8tAfHwzVWrgX98UTBZ5sOt4kGj5RH7ruieIndyiVLKq4NSsl+glb2nlRK1G1w3bSvN8UgKqg==
   dependencies:
     file-type "^19.0.0"
     fs-extra "^11.2.0"
     sharp "~0.34.5"
 
-"@vendure/cli@3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/cli/-/cli-3.6.0.tgz"
-  integrity sha512-4tMabosa5rW18pL0wxLD6sxwaX4eS6NHPiNs9MHWacQqWVzHTzNVTvZ4buhafFqOE8VTfPM4pfR+7hoyzk0hTQ==
+"@vendure/cli@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/cli/-/cli-3.6.1.tgz"
+  integrity sha512-kY82bAO3wcf06vFy4+EfVTqJENU+pWYXTbQVKafzn6macKzEOeFnrPfHLJT7pGBpMkcHvCIwbTf+eUfv+8DG1A==
   dependencies:
     "@clack/prompts" "^0.7.0"
-    "@vendure/common" "3.6.0"
+    "@vendure/common" "3.6.1"
     change-case "^4.1.2"
     commander "^11.0.0"
     dotenv "^16.4.5"
@@ -3763,15 +3763,15 @@
     ts-node "^10.9.2"
     tsconfig-paths "^4.2.0"
 
-"@vendure/common@^3.0.0", "@vendure/common@^3.6.0-0", "@vendure/common@3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/common/-/common-3.6.0.tgz"
-  integrity sha512-SxZJvKP23zyjyqesbxMU1HXnRvETrKXQsYJafd5ZIG6ALpAciZ0nTUILZJIJcryTx/z8iSvFg721C34JfkgPeQ==
+"@vendure/common@^3.0.0", "@vendure/common@^3.6.0-0", "@vendure/common@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/common/-/common-3.6.1.tgz"
+  integrity sha512-FHiKR6Wx77VerUVgVliW8vYup5SuesvSWZ9aHc4C75yi3ndPUeRtOdVYN9JDUO2m6RK77ZvuD6ky7PKCfHlCOg==
 
-"@vendure/core@^3.0.0", "@vendure/core@^3.6.0-0", "@vendure/core@3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/core/-/core-3.6.0.tgz"
-  integrity sha512-wUKqRMwsNMfAH/9DjetrbZMGEb0GTcmOTLLxtUz3bTXVKHy7eeoLbnZoFZjykScbNaxSlst27kQGy7H2rzX+tg==
+"@vendure/core@^3.0.0", "@vendure/core@^3.6.0-0", "@vendure/core@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/core/-/core-3.6.1.tgz"
+  integrity sha512-JrcTMi7kmP4gwMIu5reDlKFmwt/0Z1GM6W+MY/f4NLvl5t4iGuq624SGkPWMQQo8Gb2rYQaTR+81VoBX/Jkj6Q==
   dependencies:
     "@apollo/server" "^4.12.2"
     "@graphql-tools/stitch" "^10.1.16"
@@ -3782,7 +3782,7 @@
     "@nestjs/platform-express" "^11.0.12"
     "@nestjs/terminus" "^11.0.0"
     "@nestjs/typeorm" "^11.0.0"
-    "@vendure/common" "3.6.0"
+    "@vendure/common" "3.6.1"
     bcrypt "^6.0.0"
     body-parser "^1.20.2"
     cookie-session "^2.1.0"
@@ -3814,10 +3814,10 @@
     semver "^7.6.0"
     typeorm "^0.3.21"
 
-"@vendure/dashboard@3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/dashboard/-/dashboard-3.6.0.tgz"
-  integrity sha512-+0bxK/N0LL8LCZwmeXIccG3CwDzlo6vFXV3bNnPFKBsx4cKDxrqdeZTJUjQwF4ChRAkfXPGcKPv22vcd7TQLyg==
+"@vendure/dashboard@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/dashboard/-/dashboard-3.6.1.tgz"
+  integrity sha512-/KEoHj3RoyzaKUG7Rc1aKaiLge2j+9vopJBvoxaTVH9UOkvC7x5eLME1zwZM4rO9Ez2zFRIdTUeg9XWlXLbthQ==
   dependencies:
     "@babel/core" "^7.29.0"
     "@babel/preset-react" "^7.28.5"
@@ -3828,7 +3828,7 @@
     "@fontsource-variable/geist-mono" "^5.2.7"
     "@fontsource-variable/inter" "^5.2.8"
     "@fontsource-variable/public-sans" "^5.2.7"
-    "@hookform/resolvers" "^4.1.3"
+    "@hookform/resolvers" "^5.0.0"
     "@lingui/babel-plugin-lingui-macro" "^5.9.3"
     "@lingui/cli" "^5.9.3"
     "@lingui/core" "^5.9.3"
@@ -3885,15 +3885,15 @@
     tw-animate-css "^1.2.9"
     vaul "^1.1.2"
     vite "^7.3.1"
-    zod "^3.25.76"
+    zod "^3.25.0 || ^4.0.0"
   optionalDependencies:
     lightningcss-linux-arm64-musl "^1.29.3"
     lightningcss-linux-x64-musl "^1.29.1"
 
-"@vendure/email-plugin@3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/email-plugin/-/email-plugin-3.6.0.tgz"
-  integrity sha512-UtSLibjAtRkGIP5oidOH5W32gKH0oYDVoXKCQ65maDdtL9ZzyOiXmF6ZY/Qf/kVnRAqRfk3ZFGiA4v/ryO5h4A==
+"@vendure/email-plugin@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/email-plugin/-/email-plugin-3.6.1.tgz"
+  integrity sha512-EpxhCzErSYByK0sb36z7fEqGCupxWxEjJLEpibJ6QB+i6tUpvcecVUdi58fNEcfxONjQDr3xdNt/5IiS6OEg1w==
   dependencies:
     "@types/nodemailer" "^6.4.9"
     dateformat "^3.0.3"
@@ -3903,10 +3903,10 @@
     mjml "^4.14.1"
     nodemailer "^6.9.4"
 
-"@vendure/graphiql-plugin@3.6.0":
-  version "3.6.0"
-  resolved "https://registry.npmjs.org/@vendure/graphiql-plugin/-/graphiql-plugin-3.6.0.tgz"
-  integrity sha512-PiJofsmBoVRRwcwgN6ZDsfw0X6y5tuUh1mnStva9J/1D9O8AOVNhTW/Qz09Fh3AYwsd6WRYXtxsK/68so5xu2g==
+"@vendure/graphiql-plugin@3.6.1":
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/@vendure/graphiql-plugin/-/graphiql-plugin-3.6.1.tgz"
+  integrity sha512-GkrTrEq7uNKoWrHErCQ1fCAXS3PDuVvx3REO6LL37nq3XRFOlUTHmH+SCfqlpydWjaALh96gWpGl8TekBsUNlw==
   dependencies:
     express "^5.1.0"
 
@@ -8552,7 +8552,7 @@ react-dropzone@^15.0.0:
     file-selector "^2.1.0"
     prop-types "^15.8.1"
 
-react-hook-form@^7.0.0, react-hook-form@^7.71.0, react-hook-form@>=7:
+react-hook-form@^7.55.0, react-hook-form@^7.71.0, react-hook-form@>=7:
   version "7.72.1"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.72.1.tgz"
   integrity sha512-RhwBoy2ygeVZje+C+bwJ8g0NjTdBmDlJvAUHTxRjTmSUKPYsKfMphkS2sgEMotsY03bP358yEYlnUeZy//D9Ig==
@@ -10098,7 +10098,7 @@ zod-to-json-schema@^3.24.6, zod-to-json-schema@^3.25.1:
   resolved "https://registry.npmjs.org/zod-to-json-schema/-/zod-to-json-schema-3.25.2.tgz"
   integrity sha512-O/PgfnpT1xKSDeQYSCfRI5Gy3hPf91mKVDuYLUHZJMiDFptvP41MSnWofm8dnCm0256ZNfZIM7DSzuSMAFnjHA==
 
-zod@^3.24.1, zod@^3.24.2, "zod@^3.25 || ^4.0", "zod@^3.25.28 || ^4", zod@^3.25.76:
+zod@^3.24.1, zod@^3.24.2, "zod@^3.25 || ^4.0", "zod@^3.25.0 || ^4.0.0", "zod@^3.25.28 || ^4":
   version "3.25.76"
   resolved "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz"
   integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
