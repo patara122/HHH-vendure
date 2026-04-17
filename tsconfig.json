@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
@@ -11,6 +12,7 @@
     "strict": true,
     "sourceMap": false,
     "skipLibCheck": true,
+    "rootDir": "./src",
     "outDir": "./dist",
     "baseUrl": "./"
   },
