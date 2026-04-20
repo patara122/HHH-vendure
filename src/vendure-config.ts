@@ -136,8 +136,8 @@ export const config: VendureConfig = {
     plugins: [
 
         MeilisearchPlugin.init({
-            host: 'http://localhost:7700',
-            apiKey: 'XPEjd5jifeINvSuJ7jSyZt22o6Goqzj29nAWX7lnfn0',
+            host: process.env.MEILI_HOST,
+            apiKey: process.env.MEILI_API_KEY,
             customProductVariantMappings: {
                 NewSKU: {
                     graphQlType: 'String',
