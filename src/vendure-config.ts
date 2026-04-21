@@ -53,7 +53,7 @@ export const config: VendureConfig = {
         type: 'postgres',
         // See the README.md "Migrations" section for an explanation of
         // the `synchronize` and `migrations` options.
-        synchronize: false,
+        synchronize: true,
         migrations: [path.join(__dirname, './migrations/*.+(js|ts)')],
         logging: false,
         database: process.env.DB_NAME,
@@ -171,7 +171,7 @@ export const config: VendureConfig = {
             // fix should
             // be guessed correctly, but for production it will usually need
             // to be set manually to match your production url.
-            assetUrlPrefix: IS_DEV ? undefined : 'https://www.my-shop.com/assets/',
+            assetUrlPrefix: IS_DEV ? undefined : 'http://110.238.115.14/assets/',
              storageStrategyFactory: process.env.S3_BUCKET
         ? configureS3AssetStorage({
             bucket: process.env.S3_BUCKET,
