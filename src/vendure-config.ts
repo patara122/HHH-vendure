@@ -71,12 +71,77 @@ export const config: VendureConfig = {
     customFields: {
 
         Product : [
-            {
-                name: 'infoUrls',
+            {   name: 'MarketingBullets',
+                type: 'string',
+                ui: { component: 'rich-text-form-input' }, 
+                nullable: true,
+            },
+            {   name: 'CountryofOrigin',
                 type: 'string',
                 nullable: true,
-                list: true,
-            }
+            },
+
+            {
+                name: 'Datasheet',
+                type: 'struct',
+                nullable: true,
+                fields: [
+                    {
+                        name: 'url',
+                        type: 'string',
+                    },
+                    {
+                        name: 'filename',
+                        type: 'string',
+                    }
+                ]
+            },
+               {
+                name: 'ProductManual',
+                type: 'struct',
+                nullable: true,
+                fields: [
+                    {
+                        name: 'url',
+                        type: 'string',
+                    },
+                    {
+                        name: 'filename',
+                        type: 'string',
+                    }
+                ]
+            },
+                   {
+                name: 'ProductVideo',
+                type: 'struct',
+                nullable: true,
+                fields: [
+                    {
+                        name: 'url',
+                        type: 'string',
+                    },
+                    {
+                        name: 'filename',
+                        type: 'string',
+                    }
+                ]
+            },
+            {
+                name: 'CatalogPage',
+                type: 'struct',
+                nullable: true,
+                fields: [
+                    {
+                        name: 'url',
+                        type: 'string',
+                    },
+                    {
+                        name: 'filename',
+                        type: 'string',
+                    }
+                ]
+            },
+
         ],
 
         ProductVariant : [
@@ -101,18 +166,26 @@ export const config: VendureConfig = {
             },
 
             {   
-                name: 'Additionalinfo',
+                name: 'Packing',
                 type: 'struct',
+                nullable: true,
                 fields: [
                     {
-                        name: 'Brand',
+                        name: 'PackQTY',
                         type: 'string',
                     },
                     {
-                        name: 'PackingUnit',
+                        name: 'PackUnit',
                         type: 'string',
-                    },
-                    {       
+                    }  
+                ]
+            },
+            {   
+                name: 'Dimensions',
+                type: 'struct',
+                nullable: true,
+                fields: [
+                    {
                         name: 'Width',
                         type: 'string',
                     },
@@ -127,7 +200,29 @@ export const config: VendureConfig = {
                     {
                         name: 'Weight',
                         type: 'string',
-                    }
+                    }  
+                ]
+            },
+            {   
+                name: 'PkgDimensions',
+                type: 'struct',
+                fields: [
+                    {
+                        name: 'Width',
+                        type: 'string',
+                    },
+                    {
+                        name: 'Depth',
+                        type: 'string',
+                    },
+                    {
+                        name: 'Height',
+                        type: 'string',
+                    },
+                    {
+                        name: 'Weight',
+                        type: 'string',
+                    }  
                 ]
             }
         ]
