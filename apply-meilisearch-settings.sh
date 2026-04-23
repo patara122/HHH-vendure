@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-MEILI_HOST=http://vendure-meilisearch-lrznnx-ab61bb-110-238-115.14.traefik.me:7700
+MEILI_HOST=http://meilisearch.hhh.co.th:7700
 MEILI_API_KEY=XPEjd5jifeINvSuJ7jSyZt22o6Goqzj29nAWX7lnfn0
 
 if [ -z "$MEILI_API_KEY" ]; then
