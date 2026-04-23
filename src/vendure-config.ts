@@ -266,7 +266,7 @@ export const config: VendureConfig = {
             // fix should
             // be guessed correctly, but for production it will usually need
             // to be set manually to match your production url.
-            assetUrlPrefix: IS_DEV ? undefined : 'http://110.238.115.14/assets/',
+            assetUrlPrefix: IS_DEV ? undefined : 'http://s3.hhh.co.th/vendure-assets/',
              storageStrategyFactory: process.env.S3_BUCKET
         ? configureS3AssetStorage({
             bucket: process.env.S3_BUCKET,
