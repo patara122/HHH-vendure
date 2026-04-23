@@ -12,15 +12,7 @@ import { GraphiqlPlugin } from '@vendure/graphiql-plugin';
 import 'dotenv/config';
 import path from 'path';
 import { CmsPlugin } from './plugins/cms/cms.plugin';
-import {
-  MeilisearchPlugin,
-  MeilisearchOptions,
-  SearchConfig,
-  MatchingStrategy,
-  EmbedderConfig,
-  AiSearchConfig,
-  TypoToleranceConfig,
-} from '@rahul_vendure/vendure-meilli-search';
+import {MeilisearchPlugin} from '@rahul_vendure/vendure-meilli-search';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
 const serverPort = +process.env.PORT || 3000;

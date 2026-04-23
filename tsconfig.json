@@ -12,10 +12,8 @@
     "sourceMap": false,
     "skipLibCheck": true,
     "rootDir": "./src",
-    "outDir": "./dist",
-    "baseUrl": "./"
-   
-  },
+    "outDir": "./dist"
+   },
   "exclude": [
     "node_modules",
     "migration.ts",

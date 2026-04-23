@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
+    "baseUrl": "./",
     "paths": {
       // Import alias for the GraphQL types
       // This corresponds to the location that you have set in your `vite.config.mts`
