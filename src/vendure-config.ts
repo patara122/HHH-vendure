@@ -13,6 +13,7 @@ import 'dotenv/config';
 import path from 'path';
 import { CmsPlugin } from './plugins/cms/cms.plugin';
 import {MeilisearchPlugin} from '@rahul_vendure/vendure-meilli-search';
+import { LanguageCode } from '@vendure/common/lib/generated-types';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
 const serverPort = +process.env.PORT || 3000;
@@ -64,18 +65,27 @@ export const config: VendureConfig = {
 
         Product : [
             {   name: 'MarketingBullets',
-                type: 'string',
+                type: 'localeString',
                 ui: { component: 'rich-text-form-input' }, 
                 nullable: true,
+                label: [
+                    { languageCode: LanguageCode.en, value: 'Marketing Bullets' },
+                    { languageCode: LanguageCode.th, value: 'Marketing Bullets' },
+                ],
             },
             {   name: 'CountryofOrigin',
-                type: 'string',
+                type: 'localeString',
                 nullable: true,
+                label: [
+                    { languageCode: LanguageCode.en, value: 'Country of Origin' },
+                    { languageCode: LanguageCode.th, value: 'Country of Origin' },
+                ],
             },
 
             {
                 name: 'Datasheet',
                 type: 'struct',
+                list: true,
                 nullable: true,
                 fields: [
                     {
@@ -91,6 +101,7 @@ export const config: VendureConfig = {
                {
                 name: 'ProductManual',
                 type: 'struct',
+                list: true,
                 nullable: true,
                 fields: [
                     {
@@ -106,6 +117,7 @@ export const config: VendureConfig = {
                    {
                 name: 'ProductVideo',
                 type: 'struct',
+                list: true,
                 nullable: true,
                 fields: [
                     {
@@ -121,6 +133,7 @@ export const config: VendureConfig = {
             {
                 name: 'CatalogPage',
                 type: 'struct',
+                list: true,
                 nullable: true,
                 fields: [
                     {
