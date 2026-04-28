@@ -22,11 +22,7 @@ export const config: VendureConfig = {
     apiOptions: {
         port: serverPort,
         adminApiPath: 'admin-api',
-        shopApiPath: 'shop-api',
-        cors: {
-            origin: ['https://vendure.hhh.co.th'], 
-            credentials: true,
-        },
+        shopApiPath: 'shop-api',     
         trustProxy: IS_DEV ? false : 1,
         // The following options are useful in development mode,
         // but are best turned off for production for security
