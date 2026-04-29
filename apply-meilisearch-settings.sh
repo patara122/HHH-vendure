@@ -9,7 +9,7 @@ if [ -z "$MEILI_API_KEY" ]; then
   MEILI_API_KEY=XPEjd5jifeINvSuJ7jSyZt22o6Goqzj29nAWX7lnfn0
 fi
 
-SEARCHABLE_ATTRIBUTES='["description","productName","productVariantName","sku","slug","variant-NewSKU","variant-SupplierSKU","variant-Barcode"]'
+SEARCHABLE_ATTRIBUTES='["description","productName","productVariantName","sku","slug","variant-NewSKU","variant-SupplierSKU","variant-Barcode","variant-facetValueNames","variant-facetValueCodes","product-facetValueNames","product-facetValueCodes"]'
 
 INDEXES="vendure-variants vendure-products"
 

@@ -238,6 +238,27 @@ export const config: VendureConfig = {
         MeilisearchPlugin.init({
             host: process.env.MEILI_HOST,
             apiKey: process.env.MEILI_API_KEY,
+            hydrateProductRelations: ['facetValues', 'facetValues.translations'],
+            hydrateProductVariantRelations: ['facetValues', 'facetValues.translations'],
+            customProductMappings: {
+                facetValueNames: {
+                    graphQlType: 'String',
+                    valueFn: (product, languageCode, injector, ctx) => {
+                        const facetValues = (product as any).facetValues || [];
+                        return facetValues.map((fv: any) => {
+                            const t = fv.translations?.find((t: any) => t.languageCode === languageCode) || fv.translations?.[0];
+                            return t?.name || fv.name || '';
+                        }).join(' ');
+                    },
+                },
+                facetValueCodes: {
+                    graphQlType: 'String',
+                    valueFn: (product, languageCode, injector, ctx) => {
+                        const facetValues = (product as any).facetValues || [];
+                        return facetValues.map((fv: any) => fv.code).join(' ');
+                    },
+                },
+            },
             customProductVariantMappings: {
                 NewSKU: {
                     graphQlType: 'String',
@@ -257,9 +278,26 @@ export const config: VendureConfig = {
                         return (variant.customFields as any)?.Barcode ?? '';
                     },
                 },
+                facetValueNames: {
+                    graphQlType: 'String',
+                    valueFn: (variant, languageCode, injector, ctx) => {
+                        const facetValues = (variant as any).facetValues || [];
+                        return facetValues.map((fv: any) => {
+                            const t = fv.translations?.find((t: any) => t.languageCode === languageCode) || fv.translations?.[0];
+                            return t?.name || fv.name || '';
+                        }).join(' ');
+                    },
+                },
+                facetValueCodes: {
+                    graphQlType: 'String',
+                    valueFn: (variant, languageCode, injector, ctx) => {
+                        const facetValues = (variant as any).facetValues || [];
+                        return facetValues.map((fv: any) => fv.code).join(' ');
+                    },
+                },
             },
             searchConfig: {
-                attributesToSearchOn: ['productName', 'productVariantName','sku','description','slug','variant-NewSKU','variant-SupplierSKU','variant-Barcode'],
+                attributesToSearchOn: ['productName', 'productVariantName','sku','description','slug','variant-NewSKU','variant-SupplierSKU','variant-Barcode','variant-facetValueNames','variant-facetValueCodes','product-facetValueNames','product-facetValueCodes'],
             },
         }),
     
