@@ -243,9 +243,17 @@ export const config: VendureConfig = {
             customProductMappings: {
                 facetValueNames: {
                     graphQlType: 'String',
-                    valueFn: (product, languageCode, injector, ctx) => {
+                    valueFn: async (product, variants, languageCode, injector) => {
                         const facetValues = (product as any).facetValues || [];
-                        return facetValues.map((fv: any) => {
+                        if (!facetValues.length) return '';
+                        const { TransactionalConnection, FacetValue } = require('@vendure/core');
+                        const { In } = require('typeorm');
+                        const connection = injector.get(TransactionalConnection) as any;
+                        const fvs = await connection.getRepository(FacetValue).find({
+                            where: { id: In(facetValues.map((fv: any) => fv.id)) },
+                            relations: ['translations']
+                        });
+                        return fvs.map((fv: any) => {
                             const t = fv.translations?.find((t: any) => t.languageCode === languageCode) || fv.translations?.[0];
                             return t?.name || fv.name || '';
                         }).join(' ');
@@ -253,7 +261,7 @@ export const config: VendureConfig = {
                 },
                 facetValueCodes: {
                     graphQlType: 'String',
-                    valueFn: (product, languageCode, injector, ctx) => {
+                    valueFn: (product, variants, languageCode, injector) => {
                         const facetValues = (product as any).facetValues || [];
                         return facetValues.map((fv: any) => fv.code).join(' ');
                     },
@@ -280,9 +288,17 @@ export const config: VendureConfig = {
                 },
                 facetValueNames: {
                     graphQlType: 'String',
-                    valueFn: (variant, languageCode, injector, ctx) => {
+                    valueFn: async (variant, languageCode, injector, ctx) => {
                         const facetValues = (variant as any).facetValues || [];
-                        return facetValues.map((fv: any) => {
+                        if (!facetValues.length) return '';
+                        const { TransactionalConnection, FacetValue } = require('@vendure/core');
+                        const { In } = require('typeorm');
+                        const connection = injector.get(TransactionalConnection) as any;
+                        const fvs = await connection.getRepository(FacetValue).find({
+                            where: { id: In(facetValues.map((fv: any) => fv.id)) },
+                            relations: ['translations']
+                        });
+                        return fvs.map((fv: any) => {
                             const t = fv.translations?.find((t: any) => t.languageCode === languageCode) || fv.translations?.[0];
                             return t?.name || fv.name || '';
                         }).join(' ');
