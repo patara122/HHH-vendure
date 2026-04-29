@@ -20,6 +20,7 @@ const serverPort = +process.env.PORT || 3000;
 
 export const config: VendureConfig = {
     apiOptions: {
+        cors: { origin: process.env.CORS_ORIGIN || 'https://vendure.hhh.co.th', credentials: true },
         port: serverPort,
         adminApiPath: 'admin-api',
         shopApiPath: 'shop-api',     
@@ -40,6 +41,7 @@ export const config: VendureConfig = {
         },
         cookieOptions: {
           secret: process.env.COOKIE_SECRET,
+          secure: true,
         },
     },
     dbConnectionOptions: {
