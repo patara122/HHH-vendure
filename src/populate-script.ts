@@ -14,6 +14,7 @@ const populateConfig = {
 
 populate(
   () => bootstrap(populateConfig),
+  {},
    productsCsvFile
 )
   .then(app => app.close())
