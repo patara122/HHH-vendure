@@ -1,0 +1,22 @@
+name: Execute Vendure Populate Script
+
+# workflow_dispatch means this will NOT run automatically on every push.
+# You have to manually click a button in GitHub to run it, which is safer for DB operations.
+on:
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute script inside Dokploy Container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_IP }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          # Replace 'YOUR_CONTAINER_NAME' with the name you found in Step 2.
+          # Replace '/app' with your container's working directory (usually /app in Dokploy/Node)
+          script: |
+            docker exec vendure-server-u3ull9 sh -c "cd /app && NODE_ENV=production node dist/populate-script.js"
