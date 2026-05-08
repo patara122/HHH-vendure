@@ -6,7 +6,7 @@ import path from 'path';
 
 config.apiOptions.port = 0;
 
-const productsCsvFile = path.join(__dirname, 'products.csv');
+const productsCsvFile = path.join(__dirname, '../products.csv');
 const populateConfig = {
     ...config,
     plugins: (config.plugins || []).filter(plugin => plugin !== DefaultJobQueuePlugin,)
