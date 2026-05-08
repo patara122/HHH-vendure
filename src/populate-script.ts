@@ -4,6 +4,8 @@ import { populate } from '@vendure/core/cli';
 import { config } from './vendure-config'; 
 import path from 'path';
 
+config.apiOptions.port = 0;
+
 const productsCsvFile = path.join(__dirname, 'products.csv');
 const populateConfig = {
     ...config,
