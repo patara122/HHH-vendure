@@ -1,10 +1,22 @@
 import { bootstrap,DefaultJobQueuePlugin } from '@vendure/core';
-import { populate } from '@vendure/core/cli';
+import { populate, populateInitialData } from '@vendure/core/cli';
 // Point this to your actual production config
 import { config } from './vendure-config'; 
 import path from 'path';
 
+
 config.apiOptions.port = 0;
+
+const dummyInitialData = {
+  defaultLanguage: 'th',
+  defaultZone: 'CSV-Import-Zone', // Creates a harmless empty zone if it doesn't exist
+  countries: [],
+  taxRates: [],
+  shippingMethods: [],
+  paymentMethods: [],
+  collections: [],
+  roles: [],
+};
 
 const productsCsvFile = path.join(__dirname, '../products.csv');
 const populateConfig = {
@@ -14,7 +26,7 @@ const populateConfig = {
 
 populate(
   () => bootstrap(populateConfig),
-  {},
+  dummyInitialData,
    productsCsvFile
 )
   .then(app => app.close())
