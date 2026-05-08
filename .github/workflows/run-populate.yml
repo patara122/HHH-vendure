@@ -19,4 +19,4 @@ jobs:
           # Replace 'YOUR_CONTAINER_NAME' with the name you found in Step 2.
           # Replace '/app' with your container's working directory (usually /app in Dokploy/Node)
           script: |
-            docker exec vendure-server-u3ull9 sh -c "cd /app && NODE_ENV=production node dist/populate-script.js"
+            docker exec ${{ secrets.VENDURE_CONTAINER_NAME }} sh -c "cd /app && NODE_ENV=production node dist/populate-script.js"
