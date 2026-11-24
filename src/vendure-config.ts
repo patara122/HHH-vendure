@@ -11,9 +11,10 @@ import { DashboardPlugin } from '@vendure/dashboard/plugin';
 import { GraphiqlPlugin } from '@vendure/graphiql-plugin';
 import 'dotenv/config';
 import path from 'path';
-import { CmsPlugin } from './plugins/cms/cms.plugin';
+//import { CmsPlugin } from './plugins/cms/cms.plugin';
 import {MeilisearchPlugin} from '@rahul_vendure/vendure-meilli-search';
 import { LanguageCode } from '@vendure/common/lib/generated-types';
+import { McpPlugin } from '@vendure/mcp-plugin';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
 const serverPort = +process.env.PORT || 3000;
@@ -22,6 +23,7 @@ export const config: VendureConfig = {
     apiOptions: {
         cors: { origin: process.env.CORS_ORIGIN || 'https://vendure.hhh.co.th', credentials: true },
         port: serverPort,
+        csrfPrevention:true,
         adminApiPath: 'admin-api',
         shopApiPath: 'shop-api',     
         trustProxy: IS_DEV ? false : 1,
@@ -369,6 +371,20 @@ export const config: VendureConfig = {
                 ? path.join(__dirname, '../dist/dashboard')
                 : path.join(__dirname, 'dashboard'),
         }),
-        CmsPlugin.init({}),
+   //     CmsPlugin.init({}),
+            McpPlugin.init({
+     
+      toolExposure: 'direct',
+
+      // ตั้งค่า OAuth (จำเป็นสำหรับ /mcp/admin)
+      oauth: {
+        tokenSecret: process.env.MCP_TOKEN_SECRET!,
+        // ใช้สำหรับ Production เพื่อระบุ URL สาธารณะของ Vendure (ถ้า Local ไม่ต้องใส่ก็ได้)
+        issuer: process.env.VENDURE_HOST|| 'http://localhost:3000',
+        // adminConsentPath: '/dashboard/mcp/authorize', // ค่าเริ่มต้นชี้ไปที่ Dashboard อยู่แล้ว
+      },
+
+      shopAccess: 'disabled',
+    }),
     ],
 };
