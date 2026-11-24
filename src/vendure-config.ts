@@ -23,7 +23,7 @@ export const config: VendureConfig = {
     apiOptions: {
         cors: { origin: process.env.CORS_ORIGIN || 'https://vendure.hhh.co.th', credentials: true },
         port: serverPort,
-        csrfPrevention:true,
+        //csrfPrevention:true,
         adminApiPath: 'admin-api',
         shopApiPath: 'shop-api',     
         trustProxy: IS_DEV ? false : 1,
