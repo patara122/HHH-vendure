@@ -316,6 +316,22 @@ export const config: VendureConfig = {
                     },
                 },
             },
+            indexSettings: {
+                searchableAttributes: [
+                    'productName',
+                    'productVariantName',
+                    'sku',
+                    'description',
+                    'slug',
+                    'variant-NewSKU',
+                    'variant-SupplierSKU',
+                    'variant-Barcode',
+                    'variant-facetValueNames',
+                    'variant-facetValueCodes',
+                    'product-facetValueNames',
+                    'product-facetValueCodes',
+                ],
+            },
             searchConfig: {
                 attributesToSearchOn: ['productName', 'productVariantName','sku','description','slug','variant-NewSKU','variant-SupplierSKU','variant-Barcode','variant-facetValueNames','variant-facetValueCodes','product-facetValueNames','product-facetValueCodes'],
             },
